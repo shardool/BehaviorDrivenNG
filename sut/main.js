@@ -1,4 +1,5 @@
 'uses strict';
 require('angular');
-angular.module('main', []);
+require('./services/github.js');
+angular.module('main', ['utilities']);
 require('./controllers/homeController.js')('main');

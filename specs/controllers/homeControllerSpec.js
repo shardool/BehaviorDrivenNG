@@ -5,10 +5,13 @@ describe('My App test cases', function () {
     beforeEach(angular.mock.inject(function ($controller, $rootScope) {
         controllerFactory = $controller;
         scope = $rootScope.$new();
-        mockMsg = sinon.stub({getEvents:function(){}});
-      server = sinon.fakeServer.create();
+        mockMsg = sinon.stub({
+            getEvents: function () {
+            }
+        });
+        server = sinon.fakeServer.create();
     }));
-    beforeEach(function(){
+    beforeEach(function () {
     });
     it('test - 1', function () {
         controllerFactory('homeController', {$scope: scope});
@@ -20,6 +23,7 @@ describe('My App test cases', function () {
         expect(scope.msg1).toEqual('hey world');
     });
     it('test - 3', function () {
+       /* controllerFactory('homeController', {$scope: scope, github: mockgitHub});*/
         server.respondWith([200, {
             'content-type': 'application/json'
         }, '{"author":"Douglas Crockford"}']);
